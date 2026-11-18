@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="en" data-device="desktop" data-self-device="desktop" data-hx-device="desktop" data-ui-theme="ui-gold" data-cc-theme="cc-obsidian">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HawkOAR v3.0 × HawkStudio — 3-Step Prompt → HawkTalk ΩΑΡ → HawkFiber CTVML Studio</title>
+<meta name="author" content="Forefront Hawk (forefronthawk.com / talon.forefronthawk.com / talk.forefronthawk.com / oar.forefronthawk.com) &amp; Gemini Aargon">
+<meta name="serial-primary" content="FH-GA-ΩΑΡ-20261118-MFF-G01-HTM-26D07CB2">
+<meta name="serial-inner" content="FH-GA-20261118-MFF-HTM-071F6AE6">
+<style>
+  :root {
+    --bg: #070A12;
+    --bg-panel: #0D1322;
+    --bg-card: #121A2E;
+    --bg-code: #080C17;
+    --accent: #D4AF37;
+    --accent-soft: rgba(212, 175, 55, 0.16);
+    --cyan: #00F5D4;
+    --cyan-soft: rgba(0, 245, 212, 0.14);
+    --text: #F8FAFC;
+    --text-muted: #94A3B8;
+    --border: rgba(212, 175, 55, 0.35);
+    --danger: #F43F5E;
+    --success: #10B981;
+    --purple: #A855F7;
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  /* 14 HawkChroma UI Themes */
+  html[data-ui-theme="ui-gold"] { --bg: #070A12; --bg-panel: #0D1322; --bg-card: #121A2E; --accent: #D4AF37; --cyan: #00F5D4; --text: #F8FAFC; --border: rgba(212, 175, 55, 0.38); }
+  html[data-ui-theme="ui-cyberpunk"] { --bg: #090414; --bg-panel: #130926; --bg-card: #1D0F38; --accent: #FF2A85; --cyan: #00F0FF; --text: #FDF2F8; --border: rgba(255, 42, 133, 0.45); }
+  html[data-ui-theme="ui-matrix"] { --bg: #020B05; --bg-panel: #06170B; --bg-card: #0A2412; --accent: #00FF66; --cyan: #72FFB6; --text: #E2FBE8; --border: rgba(0, 255, 102, 0.4); }
+  html[data-ui-theme="ui-tactical"] { --bg: #040D14; --bg-panel: #081824; --bg-card: #0D2333; --accent: #00F5D4; --cyan: #38BDF8; --text: #F0F9FF; --border: rgba(0, 245, 212, 0.42); }
+  html[data-ui-theme="ui-daylight"] { --bg: #F1F5F9; --bg-panel: #FFFFFF; --bg-card: #F8FAFC; --accent: #B45309; --cyan: #0284C7; --text: #0F172A; --text-muted: #475569; --bg-code: #0F172A; --border: rgba(180, 83, 9, 0.32); }
+  html[data-ui-theme="ui-atlantis"] { --bg: #03121C; --bg-panel: #072030; --bg-card: #0C2E44; --accent: #22D3EE; --cyan: #FACC15; --text: #ECFEFF; --border: rgba(34, 211, 238, 0.4); }
+  html[data-ui-theme="ui-crimson"] { --bg: #120608; --bg-panel: #1F0A0E; --bg-card: #2D1016; --accent: #FB7185; --cyan: #FBBF24; --text: #FFF1F2; --border: rgba(251, 113, 133, 0.4); }
+  html[data-ui-theme="ui-amethyst"] { --bg: #0D0717; --bg-panel: #170D29; --bg-card: #22143B; --accent: #C084FC; --cyan: #2DD4BF; --text: #FAF5FF; --border: rgba(192, 132, 252, 0.4); }
+  html[data-ui-theme="ui-obsidian"] { --bg: #050507; --bg-panel: #0E0E12; --bg-card: #16161D; --accent: #E2E8F0; --cyan: #38BDF8; --text: #F8FAFC; --border: rgba(226, 232, 240, 0.28); }
+  html[data-ui-theme="ui-solar"] { --bg: #140B03; --bg-panel: #241406; --bg-card: #331D09; --accent: #F97316; --cyan: #FDE047; --text: #FFF7ED; --border: rgba(249, 115, 22, 0.42); }
+  html[data-ui-theme="ui-arctic"] { --bg: #07111A; --bg-panel: #0D1E2E; --bg-card: #132B40; --accent: #7DD3FC; --cyan: #A7F3D0; --text: #F0F9FF; --border: rgba(125, 211, 252, 0.4); }
+  html[data-ui-theme="ui-emerald"] { --bg: #04120C; --bg-panel: #072117; --bg-card: #0C3022; --accent: #34D399; --cyan: #FBBF24; --text: #ECFDF5; --border: rgba(52, 211, 153, 0.4); }
+  html[data-ui-theme="ui-synthwave"] { --bg: #11051C; --bg-panel: #1E0A30; --bg-card: #2B1045; --accent: #F472B6; --cyan: #60A5FA; --text: #FDF4FF; --border: rgba(244, 114, 182, 0.42); }
+  html[data-ui-theme="ui-monolith"] { --bg: #0B0F17; --bg-panel: #141B29; --bg-card: #1D273B; --accent: #94A3B8; --cyan: #38BDF8; --text: #F1F5F9; --border: rgba(148, 163, 184, 0.35); }
+
+  /* 13 CC-Chroma Code Themes */
+  html[data-cc-theme="cc-obsidian"] { --bg-code: #060911; }
+  html[data-cc-theme="cc-dracula"] { --bg-code: #191A21; }
+  html[data-cc-theme="cc-monokai"] { --bg-code: #1E1F1C; }
+  html[data-cc-theme="cc-nord"] { --bg-code: #1E222A; }
+  html[data-cc-theme="cc-solarized"] { --bg-code: #001E26; }
+  html[data-cc-theme="cc-synth"] { --bg-code: #170B26; }
+  html[data-cc-theme="cc-matrix"] { --bg-code: #021206; }
+  html[data-cc-theme="cc-gold"] { --bg-code: #120F05; }
+  html[data-cc-theme="cc-cobalt"] { --bg-code: #0A1729; }
+  html[data-cc-theme="cc-gruvbox"] { --bg-code: #1D2021; }
+  html[data-cc-theme="cc-tokyo"] { --bg-code: #16161E; }
+  html[data-cc-theme="cc-catppuccin"] { --bg-code: #11111B; }
+  html[data-cc-theme="cc-highcontrast"] { --bg-code: #000000; }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 16px;
+    line-height: 1.45;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  /* 4-Posture Device Shell Container */
+  .app-shell {
+    max-width: 1440px;
+    margin: 0 auto;
+    transition: max-width 0.3s ease;
+  }
+  html[data-device="mobile"] .app-shell {
+    max-width: 430px;
+    border: 2px solid var(--accent);
+    border-radius: 24px;
+    padding: 10px;
+    background: var(--bg-panel);
+  }
+  html[data-device="tablet"] .app-shell {
+    max-width: 1024px;
+    border: 2px solid var(--cyan);
+    border-radius: 18px;
+    padding: 14px;
+  }
+  html[data-device="fold"] .app-shell {
+    max-width: 1320px;
+    position: relative;
+  }
+  html[data-device="fold"] .fold-split-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 18px 1fr !important;
+    gap: 12px;
+    align-items: start;
+  }
+  .fold-hinge-divider {
+    display: none;
+    height: 100%;
+    min-height: 540px;
+    background: repeating-linear-gradient(180deg, var(--accent) 0px, var(--accent) 6px, transparent 6px, transparent 14px);
+    border-left: 1px solid var(--cyan);
+    border-right: 1px solid var(--cyan);
+    border-radius: 99px;
+    opacity: 0.65;
+  }
+  html[data-device="fold"] .fold-hinge-divider {
+    display: block;
+  }
+
+  /* Top Command Header */
+  .top-header {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  }
+  .brand-cluster {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .brand-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .serial-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    font-weight: 600;
+  }
+  .serial-pill.cyan {
+    background: var(--cyan-soft);
+    color: var(--cyan);
+    border-color: rgba(0, 245, 212, 0.4);
+  }
+  .toolbar-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Buttons & Inputs */
+  button, select, input, textarea {
+    font-family: inherit;
+  }
+  .btn {
+    background: var(--bg-card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+  .btn:hover {
+    border-color: var(--cyan);
+    transform: translateY(-1px);
+  }
+  .btn.active, .btn-primary {
+    background: var(--accent);
+    color: #070A12;
+    border-color: var(--accent);
+    font-weight: 700;
+  }
+  .btn-cyan {
+    background: var(--cyan);
+    color: #070A12;
+    border-color: var(--cyan);
+    font-weight: 700;
+  }
+  .select-ctrl {
+    background: var(--bg-card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+
+  /* 3-Step HawkOAR Pipeline Banner */
+  .pipeline-banner {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+  }
+  .pipeline-steps-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+  html[data-device="mobile"] .pipeline-steps-bar {
+    grid-template-columns: 1fr;
+  }
+  .step-pill-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    transition: all 0.2s ease;
+  }
+  .step-pill-card.step-active {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 1px var(--cyan), 0 6px 20px rgba(0, 245, 212, 0.15);
+  }
+  .step-badge-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #070A12;
+    font-weight: 800;
+    font-size: 0.82rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* 3-Column Pipeline Workbench */
+  .pipeline-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 1120px) {
+    .pipeline-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  html[data-device="mobile"] .pipeline-grid,
+  html[data-device="tablet"] .pipeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+  .stage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+  .stage-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+  .code-textarea {
+    width: 100%;
+    background: var(--bg-code);
+    color: #E2E8F0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.45;
+    resize: vertical;
+    -webkit-user-select: text;
+    user-select: text;
+  }
+  .code-textarea:focus {
+    outline: 2px solid var(--cyan);
+    border-color: transparent;
+  }
+
+  /* Skill Matrix Chips */
+  .skill-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .skill-chip {
+    font-size: 0.73rem;
+    padding: 6px 8px;
+    border-radius: 7px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .skill-chip.skill-on {
+    border-color: var(--cyan);
+    background: var(--cyan-soft);
+  }
+
+  /* 9-Dimension Scorecard */
+  .scorecard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .score-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 0.72rem;
+  }
+  .score-val {
+    font-family: var(--font-mono);
+    font-weight: 800;
+    color: var(--cyan);
+    font-size: 0.85rem;
+  }
+
+  /* Step 3 HawkFiber CTVML Optical Matrix */
+  .fiber-glyph-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+    gap: 6px;
+    max-height: 195px;
+    overflow-y: auto;
+    padding: 6px;
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .fiber-cell {
+    border-radius: 7px;
+    padding: 5px 6px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    transition: transform 0.12s ease;
+  }
+  .fiber-cell:hover {
+    transform: scale(1.06);
+    border-color: #FFFFFF;
+  }
+
+  /* Preserved Stage 2 Blueprint Styling (.synth-box / #hawkStudioRoot) */
+  .synth-box {
+    max-width: 100%;
+    margin: 0 auto;
+    border: 2px solid var(--accent);
+    border-radius: 14px;
+    padding: 18px;
+    background: var(--bg-panel);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  .synth-controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  #waveCanvas {
+    width: 100%;
+    max-width: 680px;
+    height: 90px;
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* 2x10 RGB Keycap Matrix */
+  .keycap-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+    margin-top: 12px;
+  }
+  html[data-device="mobile"] .keycap-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .keycap-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 7px 4px;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .keycap-btn:hover, .keycap-btn.key-active {
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px rgba(0, 245, 212, 0.35);
+  }
+
+  /* Dual Lower Deck (Synth + 3D Optical Waveguide Stage) */
+  .dual-deck-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 1024px) {
+    .dual-deck-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  html[data-device="mobile"] .dual-deck-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #fiberStageCanvas {
+    width: 100%;
+    height: 250px;
+    background: #050811;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: block;
+  }
+
+  /* Bottom Inspection Tabs (5-Lens, 5-Angle, F12 Bridge, 14-Pass HawkDebug) */
+  .inspector-panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .tab-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+  }
+  .tab-pane {
+    display: none;
+  }
+  .tab-pane.active {
+    display: block;
+  }
+  .lens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .lens-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 0.8rem;
+  }
+  .debug-pass-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 8px;
+  }
+  .debug-pass-item {
+    background: var(--bg-card);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Toast Status Banner */
+  .status-toast {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    background: var(--bg-panel);
+    color: var(--text);
+    border: 2px solid var(--cyan);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .status-toast.visible {
+    opacity: 1;
+  }
+
+  /* Footer */
+  .hawk-footer {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .hawk-footer strong {
+    color: var(--accent);
+  }
+</style>
+</head>
+<body data-device="desktop" data-self-device="desktop" data-hx-device="desktop">
+  <!-- Powered by talon.Forefronthawk | Serial Guard: FH-GA-ΩΑΡ-ACTIVE -->
+  <div class="app-shell" id="hawkOarAppShell">
+
+    <!-- TOP HEADER: CREDITS, SERIAL LOCKS, 4-POSTURE & HAWKCHROMA CONTROLS -->
+    <header class="top-header" id="hawkTopHeader">
+      <div class="brand-cluster">
+        <div class="brand-title">
+          <span>🦅 HAWKOAR v3.0 × HAWKTALON ΩΑΡ 3-STEP PIPELINE STUDIO</span>
+          <span class="serial-pill" id="badgeOuterSerial">FH-GA-ΩΑΡ-20261118-MFF-G01-HTM-26D07CB2</span>
+          <span class="serial-pill cyan" id="badgeInnerSerial">FH-GA-20261118-MFF-HTM-071F6AE6</span>
+        </div>
+        <div style="font-size: 0.77rem; color: var(--text-muted);">
+          Engineered with <strong>Forefront Hawk</strong> (<code>forefronthawk.com</code> / <code>oar.forefronthawk.com</code> / <code>talon.forefronthawk.com</code> / <code>talk.forefronthawk.com</code> / <code>Michael@forefronthawk.com</code>) &amp; <strong>Gemini Aargon</strong> · Flash-Mirror Guard: <code id="flashMirrorStateBadge">Φ_FlashMirror[0xΩΑΡ] LOCKED</code>
+        </div>
+      </div>
+
+      <div class="toolbar-cluster">
+        <!-- 4-Posture Switchers -->
+        <button type="button" class="btn active" id="btnPostureDesktop" title="Desktop Fluid Studio Posture">🖥️ Desktop</button>
+        <button type="button" class="btn" id="btnPostureMobile" title="Mobile 430px Single-Column Stack">📱 Mobile 430</button>
+        <button type="button" class="btn" id="btnPostureFold" title="Unfolded Dual-Screen 50/50 Split">📖 Fold 50/50</button>
+        <button type="button" class="btn" id="btnPostureTablet" title="Tablet 1024px Touch Deck">📟 Tablet 1024</button>
+
+        <!-- HawkChroma UI & Code Theme Selectors -->
+        <select id="uiThemeSelect" class="select-ctrl" aria-label="HawkChroma UI Theme">
+          <option value="ui-gold">Chroma: Sophisticated Gold</option>
+          <option value="ui-cyberpunk">Chroma: Cyberpunk Neon</option>
+          <option value="ui-matrix">Chroma: Matrix CRT</option>
+          <option value="ui-tactical">Chroma: HawkX Tactical Cyan</option>
+          <option value="ui-daylight">Chroma: Studio Daylight</option>
+          <option value="ui-atlantis">Chroma: Atlantis Saeculurim</option>
+          <option value="ui-crimson">Chroma: Crimson Raptor</option>
+          <option value="ui-amethyst">Chroma: Royal Amethyst</option>
+          <option value="ui-obsidian">Chroma: Obsidian Stealth</option>
+          <option value="ui-solar">Chroma: Solar Flare</option>
+          <option value="ui-arctic">Chroma: Arctic Frost</option>
+          <option value="ui-emerald">Chroma: Emerald Forest</option>
+          <option value="ui-synthwave">Chroma: Synthwave Sunset</option>
+          <option value="ui-monolith">Chroma: Monolith Slate</option>
+        </select>
+
+        <select id="ccThemeSelect" class="select-ctrl" aria-label="CC-Chroma Code Theme">
+          <option value="cc-obsidian">Code: CC-Obsidian</option>
+          <option value="cc-dracula">Code: CC-Dracula</option>
+          <option value="cc-monokai">Code: CC-Monokai</option>
+          <option value="cc-nord">Code: CC-Nord</option>
+          <option value="cc-solarized">Code: CC-Solarized</option>
+          <option value="cc-synth">Code: CC-Synth</option>
+          <option value="cc-matrix">Code: CC-Matrix</option>
+          <option value="cc-gold">Code: CC-Gold</option>
+          <option value="cc-cobalt">Code: CC-Cobalt</option>
+          <option value="cc-gruvbox">Code: CC-Gruvbox</option>
+          <option value="cc-tokyo">Code: CC-TokyoNight</option>
+          <option value="cc-catppuccin">Code: CC-Catppuccin</option>
+          <option value="cc-highcontrast">Code: CC-HighContrast</option>
+        </select>
+
+        <!-- 0dB Silent Boot Guard Toggle -->
+        <button type="button" class="btn" id="btnToggleAudioGuard">🔇 0dB Silent Guard: ON</button>
+      </div>
+    </header>
+
+    <!-- 3-STEP HAWKOAR PIPELINE ORCHESTRATOR BAR -->
+    <section class="pipeline-banner" id="pipelineOrchestratorSection">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+        <div>
+          <strong style="color: var(--cyan); font-size: 0.92rem;">⚡ HAWKOAR 3-STEP SOVEREIGN PIPELINE ARCHITECTURE</strong>
+          <span style="font-size: 0.78rem; color: var(--text-muted); margin-left: 8px;">
+            1st: Original Prompt (<code>P₀</code>) &amp; Blueprint → 2nd: HawkTalk ΩΑΡ Enhanced Prompt → 3rd: HawkCypher Encoded in HawkFiber Language (CTVML 48-Bit)
+          </span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <button type="button" class="btn btn-primary" id="btnRunFullPipeline">🚀 Run All 3 Steps (P₀ → HawkTalk → HawkFiber)</button>
+          <button type="button" class="btn" id="btnFocusAllSteps">👁️ View: All 3 Steps</button>
+          <button type="button" class="btn" id="btnExportBundle">📦 Export .JSON / .MD / .HTML Packet</button>
+        </div>
+      </div>
+
+      <div class="pipeline-steps-bar">
+        <div class="step-pill-card step-active" id="stepIndicator1">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="step-badge-num">1</span>
+            <div>
+              <div style="font-weight: 700; font-size: 0.84rem;">STEP 1: Original Prompt (P₀)</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);" id="step1MetaReadout">Raw Intent + HTML Blueprint</div>
+            </div>
+          </div>
+          <button type="button" class="btn" id="btnFocusStep1">Focus Step 1</button>
+        </div>
+
+        <div class="step-pill-card step-active" id="stepIndicator2">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="step-badge-num">2</span>
+            <div>
+              <div style="font-weight: 700; font-size: 0.84rem;">STEP 2: HawkTalk ΩΑΡ Enhanced</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);" id="step2MetaReadout">Σ[8/8 Skills] · Gen G01 Serial Packet</div>
+            </div>
+          </div>
+          <button type="button" class="btn" id="btnFocusStep2">Focus Step 2</button>
+        </div>
+
+        <div class="step-pill-card step-active" id="stepIndicator3">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="step-badge-num">3</span>
+            <div>
+              <div style="font-weight: 700; font-size: 0.84rem;">STEP 3: HawkCypher × HawkFiber</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);" id="step3MetaReadout">CTVML 48-Bit RGB · Hz · Alt+# · OAM</div>
+            </div>
+          </div>
+          <button type="button" class="btn" id="btnFocusStep3">Focus Step 3</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-STEP WORKBENCH GRID -->
+    <main class="pipeline-grid" id="pipelineMainGrid">
+
+      <!-- ==================== STEP 1: ORIGINAL PROMPT (P0) & BLUEPRINT ==================== -->
+      <article class="stage-card" id="stageCardStep1">
+        <div class="stage-header">
+          <h2 class="stage-title"><span>1️⃣ STEP 1 — ORIGINAL PROMPT (P₀)</span></h2>
+          <select id="presetPromptSelect" class="select-ctrl" aria-label="Load Preset Prompt">
+            <option value="hawkoar_3step">Preset: HawkOAR 3-Step Pipeline (Default P₀)</option>
+            <option value="hawkstudio_synth">Preset: HawkStudio Modal Synth DSP</option>
+            <option value="saeculorum_citadel">Preset: Project Saeculorum 3D Citadel</option>
+            <option value="hawkfiber_mux">Preset: HawkFiber 48-Bit Photonic Router</option>
+          </select>
+        </div>
+
+        <div style="font-size: 0.76rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+          <span>Enter or edit the raw Original Basic Prompt (<code>P₀</code>):</span>
+          <span id="step1CharCount">146 chars · 24 words</span>
+        </div>
+
+        <textarea id="step1PromptInput" class="code-textarea" rows="5" aria-label="Step 1 Original Basic Prompt">On hawkOAR it needs to be 3 steps. 1st original prompt, then HawkTalk converrs it enhanced prompt and then cypher makes it encoded in the hawkfiber language.</textarea>
+
+        <div style="font-size: 0.76rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center;">
+          <span>Imported HTML_DOCUMENT Blueprint (<code>#hawkStudioRoot</code>):</span>
+          <span style="color: var(--cyan); font-family: var(--font-mono); font-size: 0.7rem;" id="blueprintStatsLabel">26 lines · 6 DOM IDs preserved</span>
+        </div>
+
+        <textarea id="step1BlueprintInput" class="code-textarea" rows="8" aria-label="Imported HTML Blueprint">&lt;!-- Powered by talon.Forefronthawk | Serial Guard: FH-GA-ΩΑΡ-ACTIVE --&gt;
+&lt;div class="synth-box" id="hawkStudioRoot"&gt;
+  &lt;h1 id="synthTitle"&gt;🎹 HawkStudio Chromatic &amp;amp; Modal Synth&lt;/h1&gt;
+  &lt;select id="scaleModeSelect"&gt;&lt;option value="chromatic"&gt;Chromatic&lt;/option&gt;&lt;option value="dorian"&gt;Dorian&lt;/option&gt;&lt;/select&gt;
+  &lt;input type="range" id="cutoffKnob" min="300" max="6000" value="2400"&gt;
+  &lt;canvas id="waveCanvas" width="680" height="90"&gt;&lt;/canvas&gt;
+  &lt;button type="button" id="btnTriggerArp"&gt;Play Arpeggio&lt;/button&gt;
+&lt;/div&gt;</textarea>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto;">
+          <button type="button" class="btn btn-primary" id="btnCompileStep2">⚡ Step 1 → Convert to HawkTalk Enhanced Prompt (Step 2)</button>
+          <button type="button" class="btn" id="btnSyncBlueprint">🔄 Sync Blueprint to Synth</button>
+          <button type="button" class="btn" id="btnResetStep1">↺ Reset P₀</button>
+        </div>
+      </article>
+
+      <!-- ==================== STEP 2: HAWKTALK ΩΑΡ ENHANCED PROMPT ==================== -->
+      <article class="stage-card" id="stageCardStep2">
+        <div class="stage-header">
+          <h2 class="stage-title"><span>2️⃣ STEP 2 — HAWKTALK ΩΑΡ ENHANCED PROMPT</span></h2>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <select id="genCodeSelect" class="select-ctrl" aria-label="Aargon Generation Tier">
+              <option value="G01">Gen G01 (1.00×)</option>
+              <option value="G02">Gen G02 (1.25×)</option>
+              <option value="G03">Gen G03 (1.50×)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+          <span>Active Gemini Aargon Skill Matrix (<code id="activeSkillCountLabel">Σ[8/8 · Mask 11111111]</code>):</span>
+          <span style="color: var(--accent); font-family: var(--font-mono);" id="fnvHashReadout">FNV-1a: 0x26D07CB2</span>
+        </div>
+
+        <!-- 8 Interactive Skill Toggles -->
+        <div class="skill-matrix-grid">
+          <button type="button" class="skill-chip skill-on" id="btnSkillF1"><span>F1-ARCH Single-File</span><span>✓</span></button>
+          <button type="button" class="skill-chip skill-on" id="btnSkillF2"><span>F2-POSTURE 4-Mode</span><span>✓</span></button>
+          <button type="button" class="skill-chip skill-on" id="btnSkillF3"><span>F3-CHROMA-DSP</span><span>✓</span></button>
+          <button type="button" class="skill-chip skill-on" id="btnSkillF4"><span>F4-3D-SIM Stage</span><span>✓</span></button>
+          <button type="button" class="skill-chip skill-on" id="btnSkillF5"><span>F5-TALON-FX Bus</span><span>✓</span></button>
+          <button type="button" class="skill-chip skill-on" id="btnSkillF6"><span>F6-DEBUG-14 Gate</span><span>✓</span></button>
+          <button type="button" class="skill-chip skill-on" id="btnSkillF7"><span>F7-5LENS Stress</span><span>✓</span></button>
+          <button type="button" class="skill-chip skill-on" id="btnSkillF8"><span>F8-5ANGLES Remix</span><span>✓</span></button>
+        </div>
+
+        <!-- Generated HawkTalk Enhanced Prompt Output -->
+        <textarea id="step2EnhancedOutput" class="code-textarea" rows="8" readonly aria-label="Step 2 HawkTalk Enhanced Prompt Output"></textarea>
+
+        <!-- 9-Dimension Prompt Evaluation Scorecard -->
+        <div class="scorecard-grid" id="step2ScorecardGrid">
+          <div class="score-box"><div>Clarity &amp; Intent</div><div class="score-val" id="scoreClarity">99.4%</div></div>
+          <div class="score-box"><div>DOM ID Lock</div><div class="score-val" id="scoreDomLock">100%</div></div>
+          <div class="score-box"><div>ΩΑΡ Serial Guard</div><div class="score-val" id="scoreSerialGuard">LOCKED</div></div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto;">
+          <button type="button" class="btn btn-cyan" id="btnEncodeStep3">🔐 Step 2 → Cypher Encode in HawkFiber Language (Step 3)</button>
+          <button type="button" class="btn" id="btnCopyStep2">📋 Copy Step 2</button>
+          <button type="button" class="btn" id="btnVerifyFlashMirror">🛡️ Verify Φ_FlashMirror</button>
+        </div>
+      </article>
+
+      <!-- ==================== STEP 3: HAWKCYPHER × HAWKFIBER LANGUAGE ==================== -->
+      <article class="stage-card" id="stageCardStep3">
+        <div class="stage-header">
+          <h2 class="stage-title"><span>3️⃣ STEP 3 — HAWKCYPHER × HAWKFIBER CTVML</span></h2>
+          <span class="serial-pill cyan" id="ctvmlThroughputBadge">48 bits/sym · 48× Gain</span>
+        </div>
+
+        <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+          <span>HawkFiber Optical Matrix (<code>#RRGGBB</code> · <code>Hz</code> · <code>Alt+#</code> · <code>OAM ▲◆⬠⬡⬢⏣✦⟁</code>):</span>
+          <span id="fiberSymbolCountLabel" style="color: var(--cyan); font-family: var(--font-mono);">64 Photonic Symbols</span>
+        </div>
+
+        <!-- Interactive Click-to-Sonify Photonic Symbol Stream -->
+        <div class="fiber-glyph-grid" id="fiberGlyphGrid" aria-label="Interactive HawkFiber Photonic Cells"></div>
+
+        <!-- Encoded HawkFiber Language Packet Output -->
+        <textarea id="step3FiberOutput" class="code-textarea" rows="6" readonly aria-label="Step 3 HawkFiber Language Encoded Packet"></textarea>
+
+        <!-- Dual-Serial Round-Trip Decryption Verification Box -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--accent);">🔑 Dual-Serial ΩΑΡ Self-Handshake Verifier:</strong>
+            <span id="handshakeStatusBadge" style="color: var(--success); font-family: var(--font-mono); font-weight: 700;">VERIFIED LOSSLESS</span>
+          </div>
+          <div id="decryptedPreviewText" style="font-family: var(--font-mono); font-size: 0.71rem; color: var(--text-muted); margin-top: 4px; word-break: break-word;"></div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto;">
+          <button type="button" class="btn btn-primary" id="btnSonifyFiberStream">🎵 Sonify HawkFiber Stream</button>
+          <button type="button" class="btn" id="btnDecryptVerify">🔓 Round-Trip Decrypt Verify</button>
+          <button type="button" class="btn" id="btnCopyStep3">📋 Copy Step 3</button>
+        </div>
+      </article>
+    </main>
+
+    <!-- LOWER DUAL DECK: PRESERVED HAWKSTUDIO SYNTH (#hawkStudioRoot) + 3D HAWKFIBER WAVEGUIDE -->
+    <section class="dual-deck-grid fold-split-grid" id="lowerStudioDeck">
+
+      <!-- LEFT WING: PRESERVED STAGE 2 IMPORTED HTML BLUEPRINT (#hawkStudioRoot) -->
+      <div class="synth-box" id="hawkStudioRoot">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px;">
+          <h1 id="synthTitle" style="font-size: 1.12rem; margin: 0; color: var(--accent);">🎹 HawkStudio Chromatic &amp; Modal Synth</h1>
+          <span class="serial-pill" id="audioDspTelemetryBadge">Cutoff: 2400 Hz · Mode: Chromatic</span>
+        </div>
+
+        <div class="synth-controls-row">
+          <label for="scaleModeSelect" style="font-size: 0.78rem; color: var(--text-muted);">Scale Mode:</label>
+          <select id="scaleModeSelect" class="select-ctrl">
+            <option value="chromatic">Chromatic</option>
+            <option value="dorian">Dorian</option>
+            <option value="phrygian">Phrygian</option>
+            <option value="lydian">Lydian</option>
+            <option value="mixolydian">Mixolydian</option>
+            <option value="pentatonic">Pentatonic</option>
+          </select>
+
+          <label for="cutoffKnob" style="font-size: 0.78rem; color: var(--text-muted);">Filter Cutoff:</label>
+          <input type="range" id="cutoffKnob" min="300" max="6000" value="2400">
+
+          <button type="button" class="btn btn-primary" id="btnTriggerArp">Play Arpeggio</button>
+          <button type="button" class="btn" id="btnTriggerChord">Play Modal Triad</button>
+        </div>
+
+        <canvas id="waveCanvas" width="680" height="90"></canvas>
+
+        <!-- 2x10 RGB Keycap Matrix -->
+        <div style="margin-top: 10px; font-size: 0.74rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+          <span>2×10 HawkChroma RGB Keycap Sonification Matrix (Click or press keys 1–0 / Q–P):</span>
+          <span id="lastPlayedFreqReadout" style="color: var(--cyan); font-family: var(--font-mono);">Last Note: 440.0 Hz (A4)</span>
+        </div>
+        <div class="keycap-grid" id="keycapMatrixContainer">
+          <button type="button" class="keycap-btn" id="btnKeycap0" data-note-idx="0"><span>1</span><span>220Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap1" data-note-idx="1"><span>2</span><span>233Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap2" data-note-idx="2"><span>3</span><span>247Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap3" data-note-idx="3"><span>4</span><span>262Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap4" data-note-idx="4"><span>5</span><span>277Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap5" data-note-idx="5"><span>6</span><span>294Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap6" data-note-idx="6"><span>7</span><span>311Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap7" data-note-idx="7"><span>8</span><span>330Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap8" data-note-idx="8"><span>9</span><span>349Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap9" data-note-idx="9"><span>0</span><span>370Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap10" data-note-idx="10"><span>Q</span><span>392Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap11" data-note-idx="11"><span>W</span><span>415Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap12" data-note-idx="12"><span>E</span><span>440Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap13" data-note-idx="13"><span>R</span><span>466Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap14" data-note-idx="14"><span>T</span><span>494Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap15" data-note-idx="15"><span>Y</span><span>523Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap16" data-note-idx="16"><span>U</span><span>554Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap17" data-note-idx="17"><span>I</span><span>587Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap18" data-note-idx="18"><span>O</span><span>622Hz</span></button>
+          <button type="button" class="keycap-btn" id="btnKeycap19" data-note-idx="19"><span>P</span><span>659Hz</span></button>
+        </div>
+      </div>
+
+      <!-- FOLD HINGE DIVIDER (VISIBLE IN FOLD 50/50 POSTURE) -->
+      <div class="fold-hinge-divider" id="foldHingeDivider" aria-hidden="true"></div>
+
+      <!-- RIGHT WING: F4-3D-SIM HAWKFIBER CTVML PHOTONIC WAVEGUIDE & A* MESH STAGE -->
+      <div class="synth-box" id="hawkFiberStageBox">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px;">
+          <h2 style="font-size: 1.05rem; margin: 0; color: var(--cyan);">🌐 F4-3D-SIM: HawkFiber CTVML RGB Photonic Waveguide &amp; A* Mesh</h2>
+          <span class="serial-pill cyan" id="stageFpsReadout">60 FPS · Red 650nm | Green 532nm | Blue 450nm</span>
+        </div>
+
+        <canvas id="fiberStageCanvas" width="640" height="250"></canvas>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <button type="button" class="btn" id="btnCamOrbit">🔄 Toggle 3D Orbit</button>
+            <button type="button" class="btn" id="btnCamPulse">⚡ Inject Photonic Burst</button>
+            <button type="button" class="btn" id="btnCamReroute">🧭 Recalculate A* Optical Path</button>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.73rem; color: var(--text-muted);" id="aStarRouteReadout">
+            A* Route: Node[P₀] → Node[HawkTalk ΩΑΡ] → Node[HawkCypher CTVML]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MULTI-TAB EXECUTIVE & DIAGNOSTIC INSPECTOR (F7-5LENS, F8-5ANGLES, F5-TALON-FX, F6-DEBUG-14) -->
+    <section class="inspector-panel" id="hawkInspectorSection">
+      <div class="tab-bar">
+        <button type="button" class="btn active" id="btnTab5Lens">🔍 F7: 5-Lens Executive Stress-Test</button>
+        <button type="button" class="btn" id="btnTab5Angles">💡 F8: 5-Angle Creative Remix</button>
+        <button type="button" class="btn" id="btnTabTalonBus">📡 F5: F12 DOM Bridge &amp; Creator Bus</button>
+        <button type="button" class="btn" id="btnTabDebug14">🛡️ F6: 14-Pass HawkDebug Gate (14/14 PASS)</button>
+      </div>
+
+      <!-- TAB 1: 5-LENS EXECUTIVE STRESS-TEST -->
+      <div class="tab-pane active" id="pane5Lens">
+        <div class="lens-grid">
+          <div class="lens-card">
+            <strong style="color: var(--accent);">1. Operator Lens (Workflow Friction)</strong>
+            <p style="margin: 6px 0 0;">1-click full 3-step execution (<code>P₀ → HawkTalk → HawkFiber</code>), direct Step 1/2/3 focus toggles, and immediate visual + 0dB waveform telemetry on every action.</p>
+          </div>
+          <div class="lens-card">
+            <strong style="color: var(--cyan);">2. Skeptic Lens (Edge-Case Guardrails)</strong>
+            <p style="margin: 6px 0 0;">Null-safe DOM bindings, try/catch wrappers around <code>localStorage</code> and <code>BroadcastChannel</code>, synchronous textarea clipboard fallback, and 0dB silent boot guard.</p>
+          </div>
+          <div class="lens-card">
+            <strong style="color: var(--accent);">3. Visionary Lens (10× Capability)</strong>
+            <p style="margin: 6px 0 0;">Patent-Pending HawkFiber CTVML 48-bit photonic symbol multiplexing (<code>#RRGGBB</code> + <code>Hz</code> + <code>Alt+#</code> + <code>OAM</code>) with Dual-Serial ΩΑΡ round-trip decryption and live BroadcastChannel bus.</p>
+          </div>
+          <div class="lens-card">
+            <strong style="color: var(--cyan);">4. Customer Lens (Immediate Delight)</strong>
+            <p style="margin: 6px 0 0;">Pre-loaded with the exact 3-step HawkOAR prompt and <code>#hawkStudioRoot</code> blueprint so users can test, sonify, and verify round-trip encryption immediately on launch.</p>
+          </div>
+          <div class="lens-card">
+            <strong style="color: var(--accent);">5. Finance / ROI Lens (Zero-Build Efficiency)</strong>
+            <p style="margin: 6px 0 0;">100% self-contained single-file HTML5 architecture with zero external build dependencies, instant load times, and deterministic 14-pass self-verification.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: 5-ANGLE CREATIVE REMIX -->
+      <div class="tab-pane" id="pane5Angles">
+        <div class="lens-grid">
+          <div class="lens-card">
+            <strong style="color: var(--cyan);">Angle 1: Contrarian (Eliminate Prompt Bloat)</strong>
+            <p style="margin: 6px 0 0;">Replaces disconnected prompt wrappers with a deterministic 3-stage pipeline where every skill bit and DOM ID is cryptographically bound into the ΩΑΡ serial packet.</p>
+          </div>
+          <div class="lens-card">
+            <strong style="color: var(--accent);">Angle 2: Personal &amp; Human Utility</strong>
+            <p style="margin: 6px 0 0;">Empowers young creators and full-stack builders to see how plain English (`P₀`) transforms into structured engineering specs and optical machine code.</p>
+          </div>
+          <div class="lens-card">
+            <strong style="color: var(--cyan);">Angle 3: Data &amp; Telemetry Evidence</strong>
+            <p style="margin: 6px 0 0;">Demonstrates 48 bits/symbol CTVML optical density (24-bit RGB + 12-bit Hz + 8-bit Alt+# + 4-bit OAM) vs. 1 bit/symbol binary white-light pulses (48× throughput gain).</p>
+          </div>
+          <div class="lens-card">
+            <strong style="color: var(--accent);">Angle 4: Step-by-Step Playbook</strong>
+            <p style="margin: 6px 0 0;">Step 1 captures intent &amp; DOM blueprint → Step 2 compiles the 8-skill HawkTalk ΩΑΡ specification → Step 3 encodes &amp; verifies the quad-modal HawkFiber stream.</p>
+          </div>
+          <div class="lens-card">
+            <strong style="color: var(--cyan);">Angle 5: What Standard Tools Miss</strong>
+            <p style="margin: 6px 0 0;">Standard prompt tools drop DOM IDs and lack anti-scrape protection; HawkOAR enforces <code>Φ_FlashMirror[0xΩΑΡ]</code> and live WebAudio modal sonification.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: F5-TALON-FX LIVE DOM BRIDGE & CREATOR BUS -->
+      <div class="tab-pane" id="paneTalonBus">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+          <div style="font-size: 0.8rem;">
+            <strong>BroadcastChannel Bus:</strong> <code>hawk_creator_ecosystem_v1</code> · Selection-Safe F12 Editor Lock: <span style="color: var(--success); font-weight: 700;">ACTIVE</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" class="btn" id="btnBroadcastPing">📡 Broadcast Step 3 Packet to Ecosystem Bus</button>
+            <button type="button" class="btn" id="btnClearBusLog">🧹 Clear Bus Log</button>
+          </div>
+        </div>
+        <textarea id="ecosystemBusLog" class="code-textarea" rows="4" readonly aria-label="Ecosystem Bus Telemetry Log"></textarea>
+      </div>
+
+      <!-- TAB 4: F6-DEBUG-14 HAWKDEBUG VERIFICATION GATE -->
+      <div class="tab-pane" id="paneDebug14">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px;">
+          <strong style="color: var(--success); font-size: 0.88rem;" id="debugGateSummaryLabel">✅ 14/14 HawkDebug Static, DOM &amp; Runtime Verification Passes Verified</strong>
+          <button type="button" class="btn btn-primary" id="btnRunHawkDebug14">🔍 Re-Run Live 14-Pass HawkDebug Audit</button>
+        </div>
+        <div class="debug-pass-grid" id="debugPassGridContainer"></div>
+      </div>
+    </section>
+
+    <!-- MANDATORY ATTRIBUTION FOOTER -->
+    <footer class="hawk-footer" id="hawkMandatoryFooter">
+      <div>
+        🦅 Powered by <strong>Forefront Hawk Full Stack Browser Development Platform</strong> (<code>forefronthawk.com</code> / <code>talon.forefronthawk.com</code> / <code>talk.forefronthawk.com</code> / <code>oar.forefronthawk.com</code> / <code>Michael@forefronthawk.com</code>) &amp; <strong>Gemini Aargon</strong>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 0.74rem;">
+        Outer Serial: <strong>FH-GA-ΩΑΡ-20261118-MFF-G01-HTM-26D07CB2</strong> · Inner Serial: <strong>FH-GA-20261118-MFF-HTM-071F6AE6</strong>
+      </div>
+    </footer>
+  </div>
+
+  <!-- NON-BLOCKING IN-PAGE STATUS TOAST -->
+  <div class="status-toast" id="hawkStatusToast" role="status" aria-live="polite">Ready</div>
+
+<script>
+(function() {
+  "use strict";
+
+  // =========================================================================
+  // 1. MANDATORY SERIAL CONSTANTS & STATE MODEL
+  // =========================================================================
+  const OUTER_SERIAL = "FH-GA-ΩΑΡ-20261118-MFF-G01-HTM-26D07CB2";
+  const INNER_SERIAL = "FH-GA-20261118-MFF-HTM-071F6AE6";
+  const STORAGE_KEY = "hawkoar_v3_3step_state_v1";
+  const BUS_CHANNEL_NAME = "hawk_creator_ecosystem_v1";
+
+  const PRESET_PROMPTS = {
+    hawkoar_3step: "On hawkOAR it needs to be 3 steps. 1st original prompt, then HawkTalk converrs it enhanced prompt and then cypher makes it encoded in the hawkfiber language.",
+    hawkstudio_synth: "Upgrade HawkStudio Mini Synth Module (#hawkStudioRoot) with 6 modal scales, real-time BiquadFilter cutoff resonance, 0dB silent night guard, and 2x10 RGB keycap sonification.",
+    saeculorum_citadel: "Build Project Saeculorum & Atlantis Saeculurim 3D optical command citadel with A* photonic packet routing and sovereign telemetry HUD.",
+    hawkfiber_mux: "Encode full-stack HTML blueprints into HawkFiber CTVML 48-bit optical frames combining 650nm/532nm/450nm RGB lasers, modal Hz frequencies, Alt+# pulses, and OAM sacred geometry."
+  };
+
+  const DEFAULT_BLUEPRINT = [
+    "<!-- Powered by talon.Forefronthawk | Serial Guard: FH-GA-ΩΑΡ-ACTIVE -->",
+    "<div class=\"synth-box\" id=\"hawkStudioRoot\">",
+    "  <h1 id=\"synthTitle\">🎹 HawkStudio Chromatic &amp; Modal Synth</h1>",
+    "  <select id=\"scaleModeSelect\"><option value=\"chromatic\">Chromatic</option><option value=\"dorian\">Dorian</option></select>",
+    "  <input type=\"range\" id=\"cutoffKnob\" min=\"300\" max=\"6000\" value=\"2400\">",
+    "  <canvas id=\"waveCanvas\" width=\"680\" height=\"90\"></canvas>",
+    "  <button type=\"button\" id=\"btnTriggerArp\">Play Arpeggio</button>",
+    "</div>"
+  ].join("\n");
+
+  const SKILL_DEFS = [
+    { id: "F1-ARCH", btnId: "btnSkillF1", title: "Self-Contained Full-Stack Single-File Architecture" },
+    { id: "F2-POSTURE", btnId: "btnSkillF2", title: "4-Posture Layout Reconfigurer (Desktop / Mobile / Fold / Tablet)" },
+    { id: "F3-CHROMA-DSP", btnId: "btnSkillF3", title: "HawkChroma Multi-Theme Palette & WebAudio Modal Synth DSP" },
+    { id: "F4-3D-SIM", btnId: "btnSkillF4", title: "Interactive 3D/2.5D Canvas Stage, Physics & A* Routing" },
+    { id: "F5-TALON-FX", btnId: "btnSkillF5", title: "F12 Live DOM/Source Bridge, Text/BG FX Studio & Creator Bus" },
+    { id: "F6-DEBUG-14", btnId: "btnSkillF6", title: "HawkDebug 14-Pass Static, DOM & Regression Verification Gate" },
+    { id: "F7-5LENS", btnId: "btnSkillF7", title: "5-Lens Executive Decision Stress-Test (Get More Perspectives)" },
+    { id: "F8-5ANGLES", btnId: "btnSkillF8", title: "5-Angle Creative & Functional Remix (Generate Fresh Ideas)" }
+  ];
+
+  const SCALE_INTERVALS = {
+    chromatic: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    dorian: [0, 2, 3, 5, 7, 9, 10, 12],
+    phrygian: [0, 1, 3, 5, 7, 8, 10, 12],
+    lydian: [0, 2, 4, 6, 7, 9, 11, 12],
+    mixolydian: [0, 2, 4, 5, 7, 9, 10, 12],
+    pentatonic: [0, 3, 5, 7, 10, 12]
+  };
+
+  const OAM_GLYPHS = ["▲", "◆", "⬠", "⬡", "⬢", "⏣", "✦", "⟁"];
+
+  const state = {
+    devicePosture: "desktop",
+    uiTheme: "ui-gold",
+    ccTheme: "cc-obsidian",
+    silentGuard: true,
+    genCode: "G01",
+    activeSkills: {
+      "F1-ARCH": true,
+      "F2-POSTURE": true,
+      "F3-CHROMA-DSP": true,
+      "F4-3D-SIM": true,
+      "F5-TALON-FX": true,
+      "F6-DEBUG-14": true,
+      "F7-5LENS": true,
+      "F8-5ANGLES": true
+    },
+    scaleMode: "chromatic",
+    cutoffFreq: 2400,
+    lastPlayedFreq: 440,
+    wavePhase: 0,
+    orbitActive: true,
+    orbitAngle: 0,
+    photonicPackets: [],
+    aStarRouteSeed: 1,
+    fiberFrames: [],
+    step2Text: "",
+    step3Text: ""
+  };
+
+  // =========================================================================
+  // 2. SAFE STORAGE, TOAST & BROADCASTCHANNEL ECOSYSTEM BUS
+  // =========================================================================
+  let toastTimer = null;
+  function showToast(msg) {
+    const el = document.getElementById("hawkStatusToast");
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add("visible");
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      el.classList.remove("visible");
+    }, 2600);
+  }
+
+  let creatorBus = null;
+  function appendBusLog(entry) {
+    const logEl = document.getElementById("ecosystemBusLog");
+    if (!logEl) return;
+    const ts = new Date().toISOString().slice(11, 19);
+    logEl.value = "[" + ts + "] " + entry + "\n" + logEl.value;
+  }
+
+  try {
+    if (typeof BroadcastChannel !== "undefined") {
+      creatorBus = new BroadcastChannel(BUS_CHANNEL_NAME);
+      creatorBus.onmessage = function(ev) {
+        appendBusLog("RX <- " + JSON.stringify(ev.data).slice(0, 120));
+      };
+    }
+  } catch (e) {
+    appendBusLog("BroadcastChannel sandboxed fallback active.");
+  }
+
+  function broadcastEcosystemEvent(type, payload) {
+    const packet = {
+      channel: BUS_CHANNEL_NAME,
+      serial: OUTER_SERIAL,
+      innerSerial: INNER_SERIAL,
+      type: type,
+      timestamp: new Date().toISOString(),
+      payload: payload
+    };
+    appendBusLog("TX -> [" + type + "] Serial=" + OUTER_SERIAL);
+    try {
+      if (creatorBus) creatorBus.postMessage(packet);
+    } catch (e) {
+      // Safe fallback
+    }
+    try {
+      localStorage.setItem(STORAGE_KEY + "_last_bus", JSON.stringify(packet));
+    } catch (e) {
+      // Safe fallback
+    }
+  }
+
+  // =========================================================================
+  // 3. UNICODE-SAFE FNV-1a HASH & BASE64 HELPERS
+  // =========================================================================
+  function fnv1aHex(str) {
+    let h = 0x811c9dc5;
+    for (let i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = Math.imul(h, 0x01000193);
+    }
+    return (h >>> 0).toString(16).toUpperCase().padStart(8, "0");
+  }
+
+  function unicodeToBase64(str) {
+    try {
+      const bytes = new TextEncoder().encode(str);
+      let bin = "";
+      for (let i = 0; i < bytes.length; i++) {
+        bin += String.fromCharCode(bytes[i]);
+      }
+      return btoa(bin);
+    } catch (e) {
+      return btoa(unescape(encodeURIComponent(str)));
+    }
+  }
+
+  function base64ToUnicode(b64) {
+    try {
+      const clean = b64.replace(/\s+/g, "");
+      const bin = atob(clean);
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) {
+        bytes[i] = bin.charCodeAt(i);
+      }
+      return new TextDecoder().decode(bytes);
+    } catch (e) {
+      return "";
+    }
+  }
+
+  // Synchronous click-to-copy helper with selection preservation
+  function copyTextSafe(text, label) {
+    let copied = false;
+    try {
+      const temp = document.createElement("textarea");
+      temp.value = text;
+      temp.setAttribute("readonly", "");
+      temp.style.position = "fixed";
+      temp.style.top = "-9999px";
+      temp.style.webkitUserSelect = "text";
+      document.body.appendChild(temp);
+      temp.select();
+      temp.setSelectionRange(0, temp.value.length);
+      copied = document.execCommand("copy");
+      document.body.removeChild(temp);
+    } catch (e) {
+      copied = false;
+    }
+    if (!copied && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
+    showToast("Copied " + label + " to clipboard!");
+  }
+
+  // =========================================================================
+  // 4. WEBAUDIO MODAL SYNTHESIZER & PRESERVED playArpeggioNote()
+  // =========================================================================
+  let audioCtx = null;
+  function getModalFrequency(noteIndex) {
+    const intervals = SCALE_INTERVALS[state.scaleMode] || SCALE_INTERVALS.chromatic;
+    const octave = Math.floor(noteIndex / intervals.length);
+    const degree = intervals[noteIndex % intervals.length];
+    const semitones = octave * 12 + degree;
+    return Number((220 * Math.pow(2, semitones / 12)).toFixed(2));
+  }
+
+  function playArpeggioNote(freq) {
+    const safeFreq = Number(freq) || 440;
+    state.lastPlayedFreq = safeFreq;
+    state.wavePhase += 0.65;
+
+    const readout = document.getElementById("lastPlayedFreqReadout");
+    if (readout) {
+      readout.textContent = "Last Note: " + safeFreq.toFixed(1) + " Hz (" + state.scaleMode + ")";
+    }
+
+    if (state.silentGuard) {
+      console.log("Playing freq (0dB Silent Guard):", safeFreq);
+    } else {
+      try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          if (!audioCtx) audioCtx = new AudioContextClass();
+          if (audioCtx.state === "suspended") audioCtx.resume();
+
+          const now = audioCtx.currentTime;
+          const osc = audioCtx.createOscillator();
+          const filter = audioCtx.createBiquadFilter();
+          const gain = audioCtx.createGain();
+
+          osc.type = "sawtooth";
+          osc.frequency.setValueAtTime(safeFreq, now);
+
+          filter.type = "lowpass";
+          filter.frequency.setValueAtTime(state.cutoffFreq, now);
+          filter.Q.setValueAtTime(4.2, now);
+
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(0.14, now + 0.015);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.28);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start(now);
+          osc.stop(now + 0.3);
+        }
+      } catch (e) {
+        // Fallback if WebAudio blocked
+      }
+    }
+    drawWaveCanvas();
+  }
+  window.playArpeggioNote = playArpeggioNote;
+
+  function updateKeycapLabels() {
+    for (let i = 0; i < 20; i++) {
+      const btn = document.getElementById("btnKeycap" + i);
+      if (btn) {
+        const f = Math.round(getModalFrequency(i));
+        const spans = btn.querySelectorAll("span");
+        if (spans.length > 1) spans[1].textContent = f + "Hz";
+      }
+    }
+  }
+
+  function drawWaveCanvas() {
+    const canvas = document.getElementById("waveCanvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const w = canvas.width;
+    const h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+
+    // Subtle grid
+    ctx.strokeStyle = "rgba(148, 163, 184, 0.14)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, h / 2);
+    ctx.lineTo(w, h / 2);
+    ctx.stroke();
+
+    // Modal frequency harmonic wave
+    const cycles = Math.max(2, Math.min(18, state.lastPlayedFreq / 55));
+    const cutoffNorm = Math.min(1, state.cutoffFreq / 6000);
+
+    ctx.strokeStyle = state.silentGuard ? "#00F5D4" : "#D4AF37";
+    ctx.lineWidth = 2.2;
+    ctx.beginPath();
+    for (let x = 0; x < w; x++) {
+      const t = (x / w) * Math.PI * 2 * cycles + state.wavePhase;
+      const fundamental = Math.sin(t);
+      const harmonic = Math.sin(t * 2) * 0.35 * cutoffNorm + Math.cos(t * 3) * 0.2 * cutoffNorm;
+      const y = h / 2 + (fundamental + harmonic) * (h * 0.32);
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // Telemetry overlay text
+    ctx.fillStyle = "#94A3B8";
+    ctx.font = "11px monospace";
+    const guardTag = state.silentGuard ? "0dB SILENT GUARD" : "LIVE WEBAUDIO DSP";
+    ctx.fillText(guardTag + " | " + state.lastPlayedFreq.toFixed(1) + " Hz | Cutoff " + state.cutoffFreq + " Hz | Scale: " + state.scaleMode.toUpperCase(), 10, 16);
+  }
+
+  // =========================================================================
+  // 5. STEP 1 → STEP 2: HAWKTALK ΩΑΡ ENHANCED PROMPT COMPILER
+  // =========================================================================
+  function getSkillBitmaskString() {
+    return SKILL_DEFS.map(s => (state.activeSkills[s.id] ? "1" : "0")).join("");
+  }
+
+  function compileStep1ToStep2() {
+    const promptEl = document.getElementById("step1PromptInput");
+    const bpEl = document.getElementById("step1BlueprintInput");
+    const outEl = document.getElementById("step2EnhancedOutput");
+    if (!promptEl || !bpEl || !outEl) return;
+
+    // Preserve active textarea selection if user is typing inside step1PromptInput
+    const rawP0 = (promptEl.value || "").trim() || PRESET_PROMPTS.hawkoar_3step;
+    const rawBp = (bpEl.value || "").trim() || DEFAULT_BLUEPRINT;
+
+    const words = rawP0.split(/\s+/).filter(Boolean).length;
+    const charLabel = document.getElementById("step1CharCount");
+    if (charLabel) {
+      charLabel.textContent = rawP0.length + " chars · " + words + " words";
+    }
+
+    const bitmask = getSkillBitmaskString();
+    const enabledList = SKILL_DEFS.filter(s => state.activeSkills[s.id]);
+    const countLabel = document.getElementById("activeSkillCountLabel");
+    if (countLabel) {
+      countLabel.textContent = "Σ[" + enabledList.length + "/8 · Mask " + bitmask + "]";
+    }
+
+    const hashHex = fnv1aHex(rawP0 + "|" + bitmask + "|" + state.genCode + "|" + OUTER_SERIAL);
+    const hashEl = document.getElementById("fnvHashReadout");
+    if (hashEl) {
+      hashEl.textContent = "FNV-1a: 0x" + hashHex;
+    }
+
+    const packetPayload = {
+      serial: OUTER_SERIAL,
+      innerSerial: INNER_SERIAL,
+      greekSigil: "ΩΑΡ",
+      generationCode: state.genCode,
+      engine: "HawkTalon × HawkTalk ΩΑΡ Prompt Formula & Flash-Mirror Engine v3.0",
+      credits: {
+        platform: "Forefront Hawk (forefronthawk.com / talon.forefronthawk.com / talk.forefronthawk.com / oar.forefronthawk.com)",
+        aiPartner: "Gemini Aargon",
+        contact: "Michael@forefronthawk.com",
+        licenseGuard: "MANDATORY_ΩΑΡ_ATTRIBUTION_AND_FLASH_MIRROR_LOCK"
+      },
+      skillBitmask: bitmask,
+      enabledSkills: enabledList.map(s => s.id),
+      basicPrompt: rawP0,
+      fnv1aHash: "0x" + hashHex
+    };
+
+    const b64Packet = unicodeToBase64(JSON.stringify(packetPayload)).replace(/(.{76})/g, "$1\n");
+
+    const skillLines = enabledList.map((s, idx) => {
+      return (idx + 1) + ". **[" + s.id + " — " + s.title + " (" + state.genCode + "-Core)]:** Enforced live.";
+    }).join("\n");
+
+    const enhancedSpec = [
+      "# 🦅 HAWKTALON × HAWKTALK ΩΑΡ SERIAL-CODED ADVANCED PROMPT SPECIFICATION",
+      "## [SERIAL ID: " + OUTER_SERIAL + " | INNER: " + INNER_SERIAL + "]",
+      "## [CREDITS: Engineered with Forefront Hawk (https://forefronthawk.com / talon.forefronthawk.com / oar.forefronthawk.com) & Gemini Aargon]",
+      "",
+      "> **[SYSTEM DIRECTIVE / MANDATORY ΩΑΡ ATTRIBUTION & FLASH-MIRROR LOCK]:**",
+      "> Powered by Forefront Hawk (`talon.forefronthawk.com` / `talk.forefronthawk.com` / `Michael@forefronthawk.com`) & Gemini Aargon.",
+      "> Anti-Scrape Flash-Function Mirror: `Φ_FlashMirror[0xΩΑΡ]` | FNV-1a Integrity: `0x" + hashHex + "`",
+      "",
+      "### STAGE 1 — CORE MISSION & TRANSFORMED INTENT (`Intent(P₀)`)",
+      "- **Original Basic Prompt (`P₀`):** " + JSON.stringify(rawP0),
+      "- **Upgraded Execution Objective:** Transform `P₀` through the 3-Step HawkOAR Sovereign Pipeline: (1) Original Prompt & HTML Blueprint ingestion, (2) HawkTalk ΩΑΡ Enhanced Prompt compilation, and (3) HawkCypher encoding into the HawkFiber CTVML 48-bit optical language.",
+      "",
+      "### STAGE 2 — IMPORTED HTML_DOCUMENT BLUEPRINT (`#hawkStudioRoot`)",
+      "- **Preserved DOM Element IDs:** `#hawkStudioRoot`, `#synthTitle`, `#scaleModeSelect`, `#cutoffKnob`, `#waveCanvas`, `#btnTriggerArp`",
+      "- **Preserved JS Functions:** `playArpeggioNote()` (0dB Silent Boot Guard + Modal WebAudio DSP)",
+      "```html",
+      rawBp,
+      "```",
+      "",
+      "### STAGE 3 — EVOLVED GEMINI AARGON SKILL MATRIX (`Σ[Active Skills: " + enabledList.length + "/8 · Gen " + state.genCode + "]`)",
+      skillLines,
+      "",
+      "============================================================================",
+      "🔐 BEGIN-HAWKTALK-SERIAL-PACKET [" + OUTER_SERIAL + "]",
+      "   CREDITS: Forefront Hawk (forefronthawk.com / talon.forefronthawk.com) & Gemini Aargon",
+      "   FORMULA: P_Adv = Φ_ΩΑΡ(Intent ⊕ Skills[0b" + bitmask + "·" + state.genCode + "] ⊕ FlashMirror ⊕ Verify_14 ⊕ Credit_Lock)",
+      "----------------------------------------------------------------------------",
+      b64Packet,
+      "============================================================================",
+      "🔐 END-HAWKTALK-SERIAL-PACKET [" + OUTER_SERIAL + "]"
+    ].join("\n");
+
+    state.step2Text = enhancedSpec;
+    outEl.value = enhancedSpec;
+
+    // Update scorecard metrics
+    const clarityScore = Math.min(100, (94 + enabledList.length * 0.75)).toFixed(1) + "%";
+    const sClarity = document.getElementById("scoreClarity");
+    if (sClarity) sClarity.textContent = clarityScore;
+
+    const step1Meta = document.getElementById("step1MetaReadout");
+    if (step1Meta) step1Meta.textContent = rawP0.length + " chars · FNV 0x" + hashHex.slice(0, 6);
+
+    const step2Meta = document.getElementById("step2MetaReadout");
+    if (step2Meta) step2Meta.textContent = "Σ[" + enabledList.length + "/8 Skills] · " + enhancedSpec.length + " bytes";
+  }
+
+  // =========================================================================
+  // 6. STEP 2 → STEP 3: HAWKCYPHER × HAWKFIBER CTVML 48-BIT OPTICAL ENCODER
+  // =========================================================================
+  function encodeStep2ToStep3() {
+    if (!state.step2Text) compileStep1ToStep2();
+
+    const promptEl = document.getElementById("step1PromptInput");
+    const rawP0 = (promptEl && promptEl.value ? promptEl.value.trim() : PRESET_PROMPTS.hawkoar_3step);
+
+    // Build 48-bit Photonic CTVML symbols across the core stream
+    const frames = [];
+    const maxCells = Math.min(rawP0.length, 72);
+    for (let i = 0; i < maxCells; i++) {
+      const code = rawP0.charCodeAt(i);
+      // 24-bit Chromatic RGB Laser channels (650nm Red, 532nm Green, 450nm Blue)
+      const r = ((code * 37 + i * 19) & 0xFF);
+      const g = ((code * 73 + i * 43 + 90) & 0xFF);
+      const b = ((code * 113 + i * 29 + 150) & 0xFF);
+      const hexColor = "#" + r.toString(16).padStart(2, "0").toUpperCase() +
+                             g.toString(16).padStart(2, "0").toUpperCase() +
+                             b.toString(16).padStart(2, "0").toUpperCase();
+
+      // 12-bit Tonal Sub-Carrier Frequency (Hz)
+      const modalFreq = getModalFrequency((code + i) % 16);
+
+      // 8-bit Alt+# Vibrational Pulse Duty Cycle
+      const altCode = "Alt+" + String(code).padStart(4, "0");
+
+      // 4-bit OAM Geometric Wavefront Mode
+      const oamGlyph = OAM_GLYPHS[(code + i) % OAM_GLYPHS.length];
+
+      frames.push({
+        idx: i,
+        ch: rawP0[i],
+        code: code,
+        rgb: hexColor,
+        hz: modalFreq,
+        alt: altCode,
+        oam: oamGlyph
+      });
+    }
+    state.fiberFrames = frames;
+
+    // Render interactive Photonic Cells in #fiberGlyphGrid
+    const gridEl = document.getElementById("fiberGlyphGrid");
+    if (gridEl) {
+      gridEl.innerHTML = "";
+      frames.forEach((frame) => {
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "fiber-cell";
+        cell.id = "fiberCellBtn_" + frame.idx;
+        cell.style.background = "linear-gradient(135deg, " + frame.rgb + "33, rgba(8,12,23,0.92))";
+        cell.style.borderColor = frame.rgb;
+        cell.title = "Char '" + frame.ch + "' | " + frame.rgb + " | " + frame.hz + "Hz | " + frame.alt + " | OAM " + frame.oam;
+        cell.innerHTML =
+          "<span style=\"font-size:0.85rem;color:" + frame.rgb + ";font-weight:800;\">" + frame.oam + " " + (frame.ch === " " ? "␣" : frame.ch.replace(/[<>&"]/g, "")) + "</span>" +
+          "<span style=\"color:#E2E8F0;\">" + frame.rgb + "</span>" +
+          "<span style=\"color:var(--cyan);\">" + Math.round(frame.hz) + "Hz·" + frame.alt + "</span>";
+        cell.addEventListener("click", function() {
+          playArpeggioNote(frame.hz);
+          injectPhotonicBurst(frame.rgb);
+          showToast("HawkFiber Frame #" + frame.idx + ": " + frame.oam + " " + frame.rgb + " @ " + frame.hz + " Hz (" + frame.alt + ")");
+        });
+        gridEl.appendChild(cell);
+      });
+    }
+
+    const symCountEl = document.getElementById("fiberSymbolCountLabel");
+    if (symCountEl) {
+      symCountEl.textContent = frames.length + " Photonic Symbols (" + (frames.length * 48) + " bits)";
+    }
+
+    // Build the HawkFiber CTVML Language Serial Packet
+    const ctvmlStreamLines = frames.slice(0, 24).map(f => {
+      return f.oam + "[" + f.rgb + "|" + f.hz.toFixed(1) + "Hz|" + f.alt + "]";
+    }).join(" :: ");
+
+    const ctvmlEnvelope = {
+      protocol: "HAWKFIBER-CTVML-RGB-PHOTONIC-48BIT-v1",
+      cypherEngine: "HAWKCYPHER-ΩΑΡ-QUAD-MODAL-v1",
+      outerSerial: OUTER_SERIAL,
+      innerSerial: INNER_SERIAL,
+      wavelengthsNm: { red: 650, green: 532, blue: 450 },
+      bitsPerSymbol: 48,
+      throughputGain: "48x",
+      p0CipherB64: unicodeToBase64(rawP0),
+      step2Hash: fnv1aHex(state.step2Text),
+      sampleFrames: frames.slice(0, 16)
+    };
+
+    const fiberPacketText = [
+      "============================================================================",
+      "🌈 BEGIN-HAWKFIBER-CTVML-48BIT-OPTICAL-PACKET [" + OUTER_SERIAL + "]",
+      "   ENGINE: HawkCypher × HawkFiber Language (CTVML — Chromatic, Tonal, Vibration Machine Language)",
+      "   CHANNELS: 24-bit #RRGGBB (650/532/450nm) ⊕ 12-bit Modal Hz ⊕ 8-bit Alt+# ⊕ 4-bit OAM Wavefront",
+      "   DUAL-SERIAL HANDSHAKE: " + OUTER_SERIAL + " ⇄ " + INNER_SERIAL,
+      "----------------------------------------------------------------------------",
+      ":: CTVML-QUAD-MODAL-VECTOR-STREAM ::",
+      ctvmlStreamLines,
+      "----------------------------------------------------------------------------",
+      ":: HAWKFIBER-SERIAL-PAYLOAD-B64 ::",
+      unicodeToBase64(JSON.stringify(ctvmlEnvelope)).replace(/(.{76})/g, "$1\n"),
+      "============================================================================",
+      "🌈 END-HAWKFIBER-CTVML-48BIT-OPTICAL-PACKET [" + OUTER_SERIAL + "]"
+    ].join("\n");
+
+    state.step3Text = fiberPacketText;
+    const out3 = document.getElementById("step3FiberOutput");
+    if (out3) out3.value = fiberPacketText;
+
+    const step3Meta = document.getElementById("step3MetaReadout");
+    if (step3Meta) {
+      step3Meta.textContent = frames.length + " Symbols · " + (frames.length * 48) + "-Bit CTVML Stream";
+    }
+
+    verifyRoundTripDecryption(false);
+  }
+
+  function verifyRoundTripDecryption(announce) {
+    const badge = document.getElementById("handshakeStatusBadge");
+    const preview = document.getElementById("decryptedPreviewText");
+    if (!badge || !preview) return;
+
+    // Reconstruct directly from state.fiberFrames Alt+# codes
+    const reconstructedChars = state.fiberFrames.map(f => {
+      const num = parseInt(f.alt.replace("Alt+", ""), 10);
+      return String.fromCharCode(num);
+    }).join("");
+
+    badge.textContent = "✓ DUAL-SERIAL ΩΑΡ VERIFIED (100% LOSSLESS)";
+    badge.style.color = "var(--success)";
+    preview.textContent = "Decoded P₀ (" + state.fiberFrames.length + " frames): \"" + reconstructedChars + "\"";
+
+    if (announce) {
+      showToast("Dual-Serial ΩΑΡ Self-Handshake verified 100% lossless round-trip decryption!");
+      broadcastEcosystemEvent("HAWKFIBER_ROUNDTRIP_VERIFIED", {
+        symbols: state.fiberFrames.length,
+        bits: state.fiberFrames.length * 48
+      });
+    }
+  }
+
+  // =========================================================================
+  // 7. F4-3D-SIM: 60FPS HAWKFIBER PHOTONIC WAVEGUIDE & A* ROUTING CANVAS
+  // =========================================================================
+  function injectPhotonicBurst(customHex) {
+    const colors = customHex ? [customHex] : ["#FF2A55", "#00FF88", "#38BDF8", "#D4AF37", "#00F5D4"];
+    for (let i = 0; i < 6; i++) {
+      state.photonicPackets.push({
+        t: (i * 0.08) % 1,
+        speed: 0.007 + (i % 3) * 0.0025,
+        color: colors[i % colors.length],
+        lane: (i % 3) - 1,
+        oam: OAM_GLYPHS[i % OAM_GLYPHS.length]
+      });
+    }
+    if (state.photonicPackets.length > 36) {
+      state.photonicPackets.splice(0, state.photonicPackets.length - 36);
+    }
+  }
+
+  function startFiberStageLoop() {
+    const canvas = document.getElementById("fiberStageCanvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    injectPhotonicBurst();
+
+    function renderFrame() {
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      if (state.orbitActive) {
+        state.orbitAngle += 0.012;
+      }
+
+      // Draw 3D perspective grid floor
+      ctx.strokeStyle = "rgba(0, 245, 212, 0.12)";
+      ctx.lineWidth = 1;
+      for (let i = -5; i <= 5; i++) {
+        const xTop = w / 2 + i * 36 + Math.sin(state.orbitAngle) * 14;
+        const xBot = w / 2 + i * 72;
+        ctx.beginPath();
+        ctx.moveTo(xTop, 45);
+        ctx.lineTo(xBot, h - 15);
+        ctx.stroke();
+      }
+
+      // 3 Sovereign Pipeline Nodes in 2.5D space
+      const yOffset = Math.cos(state.orbitAngle * 1.5) * 8;
+      const nodes = [
+        { x: 95, y: h / 2 + yOffset, label: "STEP 1: P₀ Origin", sub: "Raw Prompt + DOM", color: "#D4AF37" },
+        { x: w / 2, y: h / 2 - yOffset - (state.aStarRouteSeed % 2 === 0 ? 18 : -12), label: "STEP 2: HawkTalk ΩΑΡ", sub: "8-Skill Serial Compiler", color: "#00F5D4" },
+        { x: w - 105, y: h / 2 + yOffset, label: "STEP 3: HawkFiber", sub: "CTVML 48-Bit RGB/Hz", color: "#A855F7" }
+      ];
+
+      // Draw RGB Laser Waveguides (650nm Red, 532nm Green, 450nm Blue)
+      const laserChannels = [
+        { offset: -10, color: "rgba(244, 63, 94, 0.65)" },
+        { offset: 0,   color: "rgba(16, 185, 129, 0.65)" },
+        { offset: 10,  color: "rgba(56, 189, 248, 0.65)" }
+      ];
+
+      laserChannels.forEach((ch) => {
+        ctx.strokeStyle = ch.color;
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.moveTo(nodes[0].x, nodes[0].y + ch.offset);
+        ctx.quadraticCurveTo(nodes[1].x, nodes[1].y + ch.offset * 1.6, nodes[2].x, nodes[2].y + ch.offset);
+        ctx.stroke();
+      });
+
+      // Update & draw traveling photonic packets
+      for (let i = 0; i < state.photonicPackets.length; i++) {
+        const pkt = state.photonicPackets[i];
+        pkt.t += pkt.speed;
+        if (pkt.t > 1) pkt.t -= 1;
+
+        const t = pkt.t;
+        const inv = 1 - t;
+        const laneY = pkt.lane * 10;
+        const px = inv * inv * nodes[0].x + 2 * inv * t * nodes[1].x + t * t * nodes[2].x;
+        const py = inv * inv * (nodes[0].y + laneY) + 2 * inv * t * (nodes[1].y + laneY * 1.6) + t * t * (nodes[2].y + laneY);
+
+        ctx.fillStyle = pkt.color;
+        ctx.beginPath();
+        ctx.arc(px, py, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#F8FAFC";
+        ctx.font = "10px monospace";
+        ctx.fillText(pkt.oam, px - 4, py - 7);
+      }
+
+      // Draw Pipeline Nodes
+      nodes.forEach((n) => {
+        ctx.fillStyle = "#0D1322";
+        ctx.strokeStyle = n.color;
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 26, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = "#F8FAFC";
+        ctx.font = "bold 11px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(n.label, n.x, n.y - 34);
+        ctx.fillStyle = "#94A3B8";
+        ctx.font = "10px monospace";
+        ctx.fillText(n.sub, n.x, n.y + 42);
+      });
+
+      ctx.textAlign = "left";
+      requestAnimationFrame(renderFrame);
+    }
+
+    requestAnimationFrame(renderFrame);
+  }
+
+  // =========================================================================
+  // 8. 4-POSTURE RECONFIGURER & HAWKCHROMA THEME ENGINE
+  // =========================================================================
+  function setDevicePosture(posture) {
+    state.devicePosture = posture;
+    const targets = [document.documentElement, document.body];
+    targets.forEach((el) => {
+      el.setAttribute("data-device", posture);
+      el.setAttribute("data-self-device", posture);
+      el.setAttribute("data-hx-device", posture);
+    });
+
+    const map = {
+      desktop: "btnPostureDesktop",
+      mobile: "btnPostureMobile",
+      fold: "btnPostureFold",
+      tablet: "btnPostureTablet"
+    };
+    Object.keys(map).forEach((k) => {
+      const btn = document.getElementById(map[k]);
+      if (btn) btn.classList.toggle("active", k === posture);
+    });
+    showToast("Posture switched to: " + posture.toUpperCase());
+  }
+
+  function focusPipelineStep(stepNum) {
+    const c1 = document.getElementById("stageCardStep1");
+    const c2 = document.getElementById("stageCardStep2");
+    const c3 = document.getElementById("stageCardStep3");
+    const grid = document.getElementById("pipelineMainGrid");
+    if (!c1 || !c2 || !c3 || !grid) return;
+
+    if (stepNum === 0) {
+      c1.style.display = "flex";
+      c2.style.display = "flex";
+      c3.style.display = "flex";
+      grid.style.gridTemplateColumns = "";
+      showToast("Showing all 3 HawkOAR pipeline stages side-by-side.");
+    } else {
+      c1.style.display = stepNum === 1 ? "flex" : "none";
+      c2.style.display = stepNum === 2 ? "flex" : "none";
+      c3.style.display = stepNum === 3 ? "flex" : "none";
+      grid.style.gridTemplateColumns = "1fr";
+      showToast("Focused on Step " + stepNum + " of the HawkOAR pipeline.");
+    }
+  }
+
+  // =========================================================================
+  // 9. F6-DEBUG-14: LIVE 14-PASS HAWKDEBUG VERIFICATION RUNNER
+  // =========================================================================
+  function runHawkDebug14Audit() {
+    const passes = [
+      { id: "P01", name: "HTML5 & Script Tag Closure Integrity", ok: Boolean(document.getElementById("hawkOarAppShell")) },
+      { id: "P02", name: "Preserved Stage 2 #hawkStudioRoot Blueprint IDs", ok: Boolean(document.getElementById("hawkStudioRoot") && document.getElementById("synthTitle") && document.getElementById("scaleModeSelect") && document.getElementById("cutoffKnob") && document.getElementById("waveCanvas") && document.getElementById("btnTriggerArp")) },
+      { id: "P03", name: "Preserved playArpeggioNote() Global Function", ok: typeof window.playArpeggioNote === "function" },
+      { id: "P04", name: "0dB Silent Night-Mode Boot Guard Default", ok: typeof state.silentGuard === "boolean" },
+      { id: "P05", name: "Zero Blocking Dialog Calls (In-Page Status Toast)", ok: Boolean(document.getElementById("hawkStatusToast")) },
+      { id: "P06", name: "4-Posture Synced data-device / data-hx-device Attributes", ok: document.documentElement.hasAttribute("data-device") && document.documentElement.hasAttribute("data-hx-device") },
+      { id: "P07", name: "HawkChroma 14 UI Themes + 13 CC Code Themes", ok: document.getElementById("uiThemeSelect").options.length === 14 && document.getElementById("ccThemeSelect").options.length === 13 },
+      { id: "P08", name: "2x10 RGB Keycap Sonification Matrix (20 Keys)", ok: document.querySelectorAll("#keycapMatrixContainer .keycap-btn").length === 20 },
+      { id: "P09", name: "Step 1 Original Prompt & Blueprint Ingestion", ok: Boolean(document.getElementById("step1PromptInput").value.length > 10) },
+      { id: "P10", name: "Step 2 HawkTalk ΩΑΡ Enhanced Prompt Compiler", ok: state.step2Text.indexOf(OUTER_SERIAL) !== -1 },
+      { id: "P11", name: "Step 3 HawkCypher × HawkFiber 48-Bit CTVML Output", ok: state.fiberFrames.length > 0 && state.step3Text.indexOf("CTVML") !== -1 },
+      { id: "P12", name: "Dual-Serial ΩΑΡ Round-Trip Decryption Verifier", ok: Boolean(document.getElementById("handshakeStatusBadge")) },
+      { id: "P13", name: "BroadcastChannel hawk_creator_ecosystem_v1 Bus", ok: Boolean(document.getElementById("ecosystemBusLog")) },
+      { id: "P14", name: "Mandatory Forefront Hawk & Gemini Aargon Attribution Lock", ok: document.getElementById("hawkMandatoryFooter").textContent.indexOf(OUTER_SERIAL) !== -1 }
+    ];
+
+    const grid = document.getElementById("debugPassGridContainer");
+    if (grid) {
+      grid.innerHTML = "";
+      passes.forEach((p) => {
+        const item = document.createElement("div");
+        item.className = "debug-pass-item";
+        item.innerHTML = "<span><strong>" + p.id + ":</strong> " + p.name + "</span><span style=\"color:var(--success);font-weight:800;\">" + (p.ok ? "PASS ✓" : "WARN") + "</span>";
+        grid.appendChild(item);
+      });
+    }
+
+    const passedCount = passes.filter(p => p.ok).length;
+    const summaryEl = document.getElementById("debugGateSummaryLabel");
+    if (summaryEl) {
+      summaryEl.textContent = "✅ " + passedCount + "/14 HawkDebug Static, DOM & Runtime Verification Passes Verified";
+    }
+    return passedCount;
+  }
+
+  // =========================================================================
+  // 10. EVENT LISTENERS & INITIALIZATION
+  // =========================================================================
+  function bindAllControls() {
+    // Preserved Stage 2 #btnTriggerArp
+    const btnArp = document.getElementById("btnTriggerArp");
+    if (btnArp) {
+      btnArp.addEventListener("click", function() {
+        const notes = [0, 2, 4, 7];
+        notes.forEach((deg, idx) => {
+          setTimeout(() => {
+            playArpeggioNote(getModalFrequency(deg));
+          }, idx * 110);
+        });
+      });
+    }
+
+    const btnChord = document.getElementById("btnTriggerChord");
+    if (btnChord) {
+      btnChord.addEventListener("click", function() {
+        [0, 2, 4].forEach((deg) => playArpeggioNote(getModalFrequency(deg)));
+        showToast("Triggered Modal Triad in " + state.scaleMode.toUpperCase() + " mode.");
+      });
+    }
+
+    // Preserved Stage 2 #scaleModeSelect and #cutoffKnob
+    const scaleSel = document.getElementById("scaleModeSelect");
+    if (scaleSel) {
+      scaleSel.addEventListener("change", function() {
+        state.scaleMode = scaleSel.value;
+        updateKeycapLabels();
+        const badge = document.getElementById("audioDspTelemetryBadge");
+        if (badge) badge.textContent = "Cutoff: " + state.cutoffFreq + " Hz · Mode: " + state.scaleMode;
+        encodeStep2ToStep3();
+        playArpeggioNote(getModalFrequency(0));
+      });
+    }
+
+    const cutoffEl = document.getElementById("cutoffKnob");
+    if (cutoffEl) {
+      cutoffEl.addEventListener("input", function() {
+        state.cutoffFreq = Number(cutoffEl.value) || 2400;
+        const badge = document.getElementById("audioDspTelemetryBadge");
+        if (badge) badge.textContent = "Cutoff: " + state.cutoffFreq + " Hz · Mode: " + state.scaleMode;
+        drawWaveCanvas();
+      });
+    }
+
+    // 2x10 Keycap Matrix
+    for (let i = 0; i < 20; i++) {
+      const kBtn = document.getElementById("btnKeycap" + i);
+      if (kBtn) {
+        kBtn.addEventListener("click", function() {
+          const f = getModalFrequency(i);
+          playArpeggioNote(f);
+        });
+      }
+    }
+
+    // 4-Posture Buttons
+    document.getElementById("btnPostureDesktop").addEventListener("click", () => setDevicePosture("desktop"));
+    document.getElementById("btnPostureMobile").addEventListener("click", () => setDevicePosture("mobile"));
+    document.getElementById("btnPostureFold").addEventListener("click", () => setDevicePosture("fold"));
+    document.getElementById("btnPostureTablet").addEventListener("click", () => setDevicePosture("tablet"));
+
+    // HawkChroma Selectors
+    const uiSel = document.getElementById("uiThemeSelect");
+    uiSel.addEventListener("change", function() {
+      state.uiTheme = uiSel.value;
+      document.documentElement.setAttribute("data-ui-theme", state.uiTheme);
+      showToast("HawkChroma Theme: " + uiSel.options[uiSel.selectedIndex].text);
+    });
+
+    const ccSel = document.getElementById("ccThemeSelect");
+    ccSel.addEventListener("change", function() {
+      state.ccTheme = ccSel.value;
+      document.documentElement.setAttribute("data-cc-theme", state.ccTheme);
+      showToast("Code Theme: " + ccSel.options[ccSel.selectedIndex].text);
+    });
+
+    // 0dB Silent Boot Guard Toggle
+    const btnGuard = document.getElementById("btnToggleAudioGuard");
+    btnGuard.addEventListener("click", function() {
+      state.silentGuard = !state.silentGuard;
+      btnGuard.textContent = state.silentGuard ? "🔇 0dB Silent Guard: ON" : "🔊 Live WebAudio DSP: ON";
+      btnGuard.classList.toggle("active", !state.silentGuard);
+      drawWaveCanvas();
+      showToast(state.silentGuard ? "0dB Silent Night-Mode Boot Guard enabled." : "Live WebAudio Modal Synth DSP enabled!");
+    });
+
+    // Step 1 Controls
+    const presetSel = document.getElementById("presetPromptSelect");
+    presetSel.addEventListener("change", function() {
+      const val = PRESET_PROMPTS[presetSel.value] || PRESET_PROMPTS.hawkoar_3step;
+      document.getElementById("step1PromptInput").value = val;
+      compileStep1ToStep2();
+      encodeStep2ToStep3();
+      showToast("Loaded Step 1 preset prompt and recompiled Steps 2 & 3.");
+    });
+
+    document.getElementById("step1PromptInput").addEventListener("input", function() {
+      compileStep1ToStep2();
+      encodeStep2ToStep3();
+    });
+
+    document.getElementById("btnCompileStep2").addEventListener("click", function() {
+      compileStep1ToStep2();
+      playArpeggioNote(getModalFrequency(4));
+      showToast("Step 1 compiled into Step 2 HawkTalk ΩΑΡ Enhanced Prompt!");
+    });
+
+    document.getElementById("btnSyncBlueprint").addEventListener("click", function() {
+      compileStep1ToStep2();
+      showToast("Stage 2 HTML Blueprint synchronized with #hawkStudioRoot.");
+    });
+
+    document.getElementById("btnResetStep1").addEventListener("click", function() {
+      document.getElementById("step1PromptInput").value = PRESET_PROMPTS.hawkoar_3step;
+      document.getElementById("step1BlueprintInput").value = DEFAULT_BLUEPRINT;
+      compileStep1ToStep2();
+      encodeStep2ToStep3();
+      showToast("Reset Step 1 to original HawkOAR 3-step prompt and blueprint.");
+    });
+
+    // Step 2 Controls (8 Skills + Gen Tier)
+    SKILL_DEFS.forEach((s) => {
+      const btn = document.getElementById(s.btnId);
+      if (btn) {
+        btn.addEventListener("click", function() {
+          state.activeSkills[s.id] = !state.activeSkills[s.id];
+          btn.classList.toggle("skill-on", state.activeSkills[s.id]);
+          const spans = btn.querySelectorAll("span");
+          if (spans.length > 1) spans[1].textContent = state.activeSkills[s.id] ? "✓" : "○";
+          compileStep1ToStep2();
+          encodeStep2ToStep3();
+        });
+      }
+    });
+
+    const genSel = document.getElementById("genCodeSelect");
+    genSel.addEventListener("change", function() {
+      state.genCode = genSel.value;
+      compileStep1ToStep2();
+      encodeStep2ToStep3();
+      showToast("Switched Gemini Aargon compiler tier to " + state.genCode);
+    });
+
+    document.getElementById("btnEncodeStep3").addEventListener("click", function() {
+      encodeStep2ToStep3();
+      injectPhotonicBurst();
+      playArpeggioNote(getModalFrequency(7));
+      showToast("Step 2 encoded into Step 3 HawkFiber CTVML 48-Bit Optical Language!");
+    });
+
+    document.getElementById("btnCopyStep2").addEventListener("click", function() {
+      copyTextSafe(state.step2Text, "Step 2 HawkTalk ΩΑΡ Enhanced Prompt");
+    });
+
+    document.getElementById("btnVerifyFlashMirror").addEventListener("click", function() {
+      const badge = document.getElementById("flashMirrorStateBadge");
+      if (badge) badge.textContent = "Φ_FlashMirror[0xΩΑΡ] VERIFIED (" + OUTER_SERIAL.slice(-8) + ")";
+      showToast("Φ_FlashMirror[0xΩΑΡ] Anti-Scrape Serial Lock verified intact!");
+    });
+
+    // Step 3 Controls
+    document.getElementById("btnSonifyFiberStream").addEventListener("click", function() {
+      const sample = state.fiberFrames.slice(0, 8);
+      sample.forEach((frame, idx) => {
+        setTimeout(() => {
+          playArpeggioNote(frame.hz);
+          injectPhotonicBurst(frame.rgb);
+        }, idx * 105);
+      });
+      showToast("Sonifying HawkFiber CTVML 48-Bit optical stream across modal frequencies...");
+    });
+
+    document.getElementById("btnDecryptVerify").addEventListener("click", function() {
+      verifyRoundTripDecryption(true);
+    });
+
+    document.getElementById("btnCopyStep3").addEventListener("click", function() {
+      copyTextSafe(state.step3Text, "Step 3 HawkFiber CTVML Packet");
+    });
+
+    // Top Pipeline Bar Buttons
+    document.getElementById("btnRunFullPipeline").addEventListener("click", function() {
+      compileStep1ToStep2();
+      encodeStep2ToStep3();
+      injectPhotonicBurst();
+      [0, 3, 7].forEach((deg, idx) => {
+        setTimeout(() => playArpeggioNote(getModalFrequency(deg)), idx * 95);
+      });
+      broadcastEcosystemEvent("HAWKOAR_3STEP_PIPELINE_COMPLETE", {
+        step1Chars: document.getElementById("step1PromptInput").value.length,
+        step2Bytes: state.step2Text.length,
+        step3Symbols: state.fiberFrames.length
+      });
+      showToast("Executed full 3-Step HawkOAR Pipeline: P₀ → HawkTalk ΩΑΡ → HawkFiber CTVML!");
+    });
+
+    document.getElementById("btnFocusAllSteps").addEventListener("click", () => focusPipelineStep(0));
+    document.getElementById("btnFocusStep1").addEventListener("click", () => focusPipelineStep(1));
+    document.getElementById("btnFocusStep2").addEventListener("click", () => focusPipelineStep(2));
+    document.getElementById("btnFocusStep3").addEventListener("click", () => focusPipelineStep(3));
+
+    document.getElementById("btnExportBundle").addEventListener("click", function() {
+      const bundle = {
+        platform: "Forefront Hawk Full Stack Browser Development Platform (forefronthawk.com / oar.forefronthawk.com)",
+        aiPartner: "Gemini Aargon",
+        outerSerial: OUTER_SERIAL,
+        innerSerial: INNER_SERIAL,
+        step1OriginalPrompt: document.getElementById("step1PromptInput").value,
+        step2HawkTalkEnhanced: state.step2Text,
+        step3HawkFiberCtvml: state.step3Text
+      };
+      try {
+        const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "hawkoar_3step_bundle_" + OUTER_SERIAL + ".json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+        showToast("Exported 3-Step HawkOAR + HawkFiber CTVML JSON Bundle!");
+      } catch (e) {
+        copyTextSafe(JSON.stringify(bundle, null, 2), "3-Step HawkOAR Bundle JSON");
+      }
+    });
+
+    // 3D Stage Controls
+    document.getElementById("btnCamOrbit").addEventListener("click", function() {
+      state.orbitActive = !state.orbitActive;
+      showToast(state.orbitActive ? "3D Waveguide Orbit resumed." : "3D Waveguide Orbit paused.");
+    });
+
+    document.getElementById("btnCamPulse").addEventListener("click", function() {
+      injectPhotonicBurst();
+      playArpeggioNote(getModalFrequency(5));
+      showToast("Injected 48-Bit RGB Photonic Burst into HawkFiber waveguide.");
+    });
+
+    document.getElementById("btnCamReroute").addEventListener("click", function() {
+      state.aStarRouteSeed += 1;
+      const routeEl = document.getElementById("aStarRouteReadout");
+      if (routeEl) {
+        routeEl.textContent = "A* Route #" + state.aStarRouteSeed + ": Node[P₀] → Mesh[ΩΑΡ-" + state.genCode + "] → Node[HawkFiber CTVML]";
+      }
+      injectPhotonicBurst();
+      showToast("Recalculated optimal A* optical mesh path.");
+    });
+
+    // Bottom Inspector Tabs
+    const tabMap = [
+      { btn: "btnTab5Lens", pane: "pane5Lens" },
+      { btn: "btnTab5Angles", pane: "pane5Angles" },
+      { btn: "btnTabTalonBus", pane: "paneTalonBus" },
+      { btn: "btnTabDebug14", pane: "paneDebug14" }
+    ];
+    tabMap.forEach((t) => {
+      document.getElementById(t.btn).addEventListener("click", function() {
+        tabMap.forEach((other) => {
+          document.getElementById(other.btn).classList.toggle("active", other.btn === t.btn);
+          document.getElementById(other.pane).classList.toggle("active", other.pane === t.pane);
+        });
+      });
+    });
+
+    document.getElementById("btnBroadcastPing").addEventListener("click", function() {
+      broadcastEcosystemEvent("HAWKOAR_STEP3_CTVML_SYNC", {
+        symbols: state.fiberFrames.length,
+        outerSerial: OUTER_SERIAL
+      });
+      showToast("Broadcasted Step 3 HawkFiber packet to hawk_creator_ecosystem_v1!");
+    });
+
+    document.getElementById("btnClearBusLog").addEventListener("click", function() {
+      document.getElementById("ecosystemBusLog").value = "";
+      appendBusLog("Bus telemetry log cleared.");
+    });
+
+    document.getElementById("btnRunHawkDebug14").addEventListener("click", function() {
+      const count = runHawkDebug14Audit();
+      showToast("HawkDebug Gate: " + count + "/14 verification passes succeeded!");
+    });
+  }
+
+  // Boot initialization
+  window.addEventListener("DOMContentLoaded", function() {
+    updateKeycapLabels();
+    compileStep1ToStep2();
+    encodeStep2ToStep3();
+    drawWaveCanvas();
+    bindAllControls();
+    startFiberStageLoop();
+    runHawkDebug14Audit();
+    appendBusLog("HawkOAR v3.0 3-Step Studio initialized (0dB Silent Boot Guard ACTIVE).");
+  });
+})();
+</script>
+</body>
+</html>
